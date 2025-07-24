@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>My Tasks</h1>
+    <a href="/add">Add New Task</a>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.task }}
+                {% if task.done %}
+                    ✅
+                {% else %}
+                    ❌ <a href="/complete/{{ loop.index0 }}">Mark Complete</a>
+                {% endif %}
+                <a href="/delete/{{ loop.index0 }}">🗑 Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
